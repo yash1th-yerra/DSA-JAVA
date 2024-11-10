@@ -8,6 +8,7 @@ package src.array.medium;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class LeadersOfArray {
@@ -42,18 +43,22 @@ public class LeadersOfArray {
         int max = -1;
         List<Integer> ans  = new ArrayList<>();
         for(int i=arr.length-1;i>=0;i--){
-            if(arr[i]>max){
+            if(arr[i]>max){         // if duplicates should also be needed to store then make it >=
                 ans.add(arr[i]);
                 max = arr[i];
             }
         }
+        Collections.reverse(ans);
         return ans;
     }
 
+
+
     public static void main(String[] args) {
         int[] arr = {10,22,12,3,0,6};
+        int[] arr2 = {16,17,17,4,3,5,2};
 
-        List<Integer> ans = OptimalFindLeaders(arr);
+        List<Integer> ans = OptimalFindLeaders(arr2);
         System.out.println(ans);
 
 
