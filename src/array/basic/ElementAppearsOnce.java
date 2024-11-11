@@ -59,14 +59,14 @@ public class ElementAppearsOnce {
     *   if we perform xor on each element at the end only unique element will be remained.
     * */
 
-//    public static int optimalElementAppearsOnce(int[] nums){            // Time Complexity - O(N)
-//        int xor = 0;                                                    // Space Complexity - O(1)
-//        for(int i=0;i<nums.length;i++){
-//            xor^=nums[i];
-//
-//        }
-//        return xor;
-//    }
+    public static int optimalElementAppearsOnce(int[] nums){            // Time Complexity - O(N)
+        int xor = 0;                                                    // Space Complexity - O(1)
+        for(int i=0;i<nums.length;i++){
+            xor^=nums[i];
+
+        }
+        return xor;
+    }
 
     public static void main(String[] args) {
 
