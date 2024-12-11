@@ -51,10 +51,11 @@ public class PascalTriangle {
     }
 
     // generates triangle by generating each row
+    // Time Complexity  - O(n*n)
     public static List<List<Integer>> generatePascalTriangle(int numRows){
         List<List<Integer>> ans = new ArrayList<>();
-        for(int i =1;i<=numRows;i++){
-            ans.add(generateRow(i));
+        for(int i =1;i<=numRows;i++){ // time complexity - O(n)
+            ans.add(generateRow(i));    // time complexity - o(n)
         }
         return ans;
 
