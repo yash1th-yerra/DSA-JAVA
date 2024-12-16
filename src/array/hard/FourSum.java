@@ -6,17 +6,24 @@ import java.util.List;
 import java.util.Scanner;
 
 public class FourSum {
-    public static List<List<Integer>> fourSum(int[] arr){
+
+
+    // Extension to Triplet sum
+    // Add one extra pointer
+    // now iterate two loops and within it traverse two pointers
+    // Time Complexity - O(N^3)
+    // Space Complexity - O(1)
+    public static List<List<Integer>> fourSum(int[] arr){       // Overall Time Complexity ~ O(N^3)
         Arrays.sort(arr);
         List<List<Integer>> ans = new ArrayList<>();
         int n = arr.length;
-        for(int i=0;i<n;i++){
+        for(int i=0;i<n;i++){       // Time Complexity - O(N)
             if(i!=0 && arr[i]==arr[i-1]) continue;
-            for(int j=i+1;j<n;j++){
+            for(int j=i+1;j<n;j++){     // Time Complexity - O(N)
                 if(j >i+1 && arr[j]==arr[j-1]) continue;
             int k = j+1;
             int l = n-1;
-                while (k < l) {
+                while (k < l) {         // Time Complexity ~ O(N)
                     long sum = arr[i];
                     sum += arr[j];
                     sum += arr[k];

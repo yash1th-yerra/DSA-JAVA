@@ -7,15 +7,24 @@ import java.util.Scanner;
 
 public class ThreeSum {
 
-    public static List<List<Integer>> triplet(int[] arr){
+    // Three sum or Triplet Sum
+    // -1 0 1 -1 -2 2 1
+    // triplet sum can be -1 0 1 , 0 -2 2 , -1 -1 2 , 1 -2 1,....
+    // so we can have one pointer i at first and j at end
+    // and another pointer k at i+1 traverse till it crosses j i.e. k<j
+    // add a[i] + a[j] + a[k] and check if sum == 0  if so add a[i],a[j],a[k] into list.
+    // Time Complexity - O(N^2)
+    // Space Complexity - O(1)
+
+    public static List<List<Integer>> triplet(int[] arr){   // Overall Time Complexity ~ O(N^2)
         Arrays.sort(arr);
         List<List<Integer>> ans = new ArrayList<>();
         int n = arr.length;
-        for(int i=0;i<n;i++){
+        for(int i=0;i<n;i++){   // Time Complexity - O(N)
             if(i!=0 && arr[i]==arr[i-1]) continue;
             int j = i+1;
             int k = n-1;
-            while(j<k){
+            while(j<k){         // Time Complexity ~ O(N)
                 int sum = arr[i]+arr[j]+arr[k];
                 if(sum<0) j++;
                 else if(sum>0) k--;
