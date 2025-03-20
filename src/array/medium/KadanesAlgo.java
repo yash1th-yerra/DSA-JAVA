@@ -29,4 +29,23 @@ public class KadanesAlgo {
 
 
     }
+
+
+    /*
+        follow up can how to print those subarrays
+        for(i=0;i<nums.length;i++){
+            sum+=a[i];
+            if(sum>max){
+                end = i;
+                max = sum;
+            }
+            if (sum<0){
+                start = i;
+                sum = 0;
+            }
+
+            for(int j=start;j<end-1;j++){
+                System.out.println(a[j]);
+            }
+    */
 }

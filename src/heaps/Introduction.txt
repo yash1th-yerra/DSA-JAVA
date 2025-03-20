@@ -1,0 +1,29 @@
+Heap Data Structure:
+
+     - Heap is a complete binary tree based data structure where it satisfies heap propertry:
+       for every node , its children's values should be greater or equal to its own value
+     - it is generally used to implement priority queues where the smallest or largest element
+       always at the root of tree making finding largest or smallest element in O(1)
+     - Heaps are two types min heap or max heap
+     tips:
+     if question contains kth smallest - you build max heap
+     if question contains kth largest  - you build min heap
+
+    MinHeap:
+
+                   2
+                 /   \
+               3      4
+             /  \    /
+           7    6  5
+
+
+
+    MaxHeap:
+
+
+               15
+             /    \
+           10      8
+         /   \    /
+       7     5  6
