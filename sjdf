@@ -1,0 +1,84 @@
+import java.util.stream.Stream;
+
+public class ParallelTransactionProcessor {
+
+    private static final double THRESHOLD_AMOUNT = 10000.0;
+    private static final int NUM_THREADS = Runtime.getRuntime().availableProcessors();
+
+    public static void main(String[] args) throws IOException, InterruptedException, ExecutionException {
+        String filePath = "path/to/your/transaction_log.txt"; // Update with the actual path
+        double totalAmount = processFileInParallel(filePath);
+        System.out.println("Total sum of transactions over 10,000: " + totalAmount);
+    }
+
+    public static double processFileInParallel(String filePath) throws IOException, InterruptedException, ExecutionException {
+        // Split the file into chunks based on the number of available processors
+        List<Path> chunks = splitFileIntoChunks(filePath, NUM_THREADS);
+
+        // Use ExecutorService for parallel processing
+        ExecutorService executor = Executors.newFixedThreadPool(NUM_THREADS);
+        List<Future<Double>> results = chunks.stream()
+            .map(chunk -> executor.submit(() -> processChunk(chunk)))
+            .collect(Collectors.toList());
+
+        // Combine results from each chunk
+        double totalAmount = 0;
+        for (Future<Double> result : results) {
+            totalAmount += result.get();
+        }
+
+        executor.shutdown();
+        return totalAmount;
+    }
+
+    private static List<Path> splitFileIntoChunks(String filePath, int numChunks) throws IOException {
+        Path path = Paths.get(filePath);
+        long totalLines = Files.lines(path).count();
+        long linesPerChunk = (totalLines / numChunks) + 1;
+
+        try (Stream<String> lines = Files.lines(path)) {
+            return lines
+                .collect(Collectors.groupingBy(line -> line.hashCode() % numChunks))
+                .values()
+                .stream()
+                .map(chunk -> {
+                    try {
+                        Path tempFile = Files.createTempFile("chunk", ".txt");
+                        Files.write(tempFile, chunk);
+                        return tempFile;
+                    } catch (IOException e) {
+                        throw new UncheckedIOException(e);
+                    }
+                })
+                .collect(Collectors.toList());
+        }
+    }
+
+    private static double processChunk(Path chunkPath) {
+        double chunkSum = 0;
+
+        try (BufferedReader reader = Files.newBufferedReader(chunkPath)) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                // Assuming CSV format: transactionId,accountId,amount,date
+                String[] fields = line.split(","); // Adjust if the format differs
+                double amount = Double.parseDouble(fields[2]); // Assuming amount is the third field
+
+                if (amount > THRESHOLD_AMOUNT) {
+                    chunkSum += amount;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Delete chunk file after processing
+        try {
+            Files.delete(chunkPath);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return chunkSum;
+    }
+}

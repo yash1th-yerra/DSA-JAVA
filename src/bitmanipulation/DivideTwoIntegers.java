@@ -2,7 +2,7 @@ package src.bitmanipulation;
 
 public class DivideTwoIntegers {
 
-    // divided is integer in range [-2^31 to 2^31]
+    // dividend is integer in range [-2^31 to 2^31]
 
 
 
@@ -15,6 +15,23 @@ public class DivideTwoIntegers {
 //        }
 //        return ans;
 //    }
+
+
+
+
+    // optimal approach
+    // lets take example like 22/7 quotient - 3 this is our answer
+    // dividend = 22, divisor = 7
+    // 7 * 2^k <=dividend we have to increment k value until that condition is true(k is nothing but count in code)
+    // once condition fails we have to add 2^k value to ans and remove and divisor*2^k from dividend
+    // once that is done we have to check if dividend is still greater than divisor if so we continue same process till divident becomes less than divisor
+
+
+    // edge cases and constraints
+    // if either of divisor or divident is less zero we have to make a flag to indicate answer to be negative as sign
+    // if answer is greater that max value and sign is +ve then return max value
+    // if answer is greater than max but sign is -ve then return min value
+    // if above two conditions failed based on sign we make the number either -ve or +ve
 
     public static int calQuotient(int dividend, int divisor){           //TimeComplexity - O(logdividend)^2
         if(dividend==divisor) return 1;
