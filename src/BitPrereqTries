@@ -1,0 +1,40 @@
+bit prerequisites for tries:
+
+   1.
+   
+    Bit manipulation in tries are quite different.
+    why?
+    
+    simple if we i ask binary number of 9 then you'll say 1001 but when we are working with tries you can't say it 1001
+    because computer stores those numbers in either 32bits or 64 bits
+    its index moving from right to left
+    
+   2.
+    
+    Xor operator
+    1^0 = 1
+    0^1 = 1
+    1^1 = 0
+    0^0 = 0
+    
+    xor on even number of same number is 0
+    Xor on odd number of same number is 1
+    
+    how to check if bit is set or not?
+    
+    shift 1 by ith positions and do & operation between binary and shifted one .
+    000.......1001 | 000.......0010 
+    if result is 0 it is not set else it is set
+    
+    how do you turn on a bit?
+    
+    like given 9 as number and i want you to turn 2nd index bit from right side i.e. turn 0 into 1
+    000......1001 is binary of 9 
+    so using 1 and shift it to nth index positions in this case it is 2 and then do or operation between shifted one and original number i.e.9
+    
+     000.......1001 | 000.......0010 = 000......1011
+     
+     
+    
+    
+    

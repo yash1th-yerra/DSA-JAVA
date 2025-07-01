@@ -3,6 +3,7 @@ package src.array.medium;
 public class StockBuySell {
     // Best day to buy stocks and best day to sell stocks such that the profit should be maximum
     // it is something like maximum subsequence sum
+    // greedy algorithm
 
     public static void main(String[] args) {
         int[] arr = {7,1,5,3,6,4};

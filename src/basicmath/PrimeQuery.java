@@ -7,6 +7,14 @@ public class PrimeQuery {
 
     //Naive Approach enclosed in comments
 
+    // brute force:
+    /*
+        1. we need a prime check method from 2 to sqrt(number) we check every number if it is prime or not
+        2. we just run queries loop and get left and right ranges  and check numbers between l and r using prime check method
+
+
+     */
+
     //Optimized Solution at bottom
 
 //    public static boolean prime(int n){
@@ -28,13 +36,21 @@ public class PrimeQuery {
 //        for(int i=0;i<q;i++){               // time complexity - O(q)
 //            int l = queries[i][0];
 //            int r = queries[i][1];
-//            for(int j=l;j<=r;j++){          // time complexity - O(l-r)
+//            for(int j=l;j<=r;j++){          // time complexity - O(r-l)
 //                if(prime(j))
 //                    count++;
 //            }
 //        }
 //        return count;
 //    }
+
+
+
+    // q*(r-l)*n^1/2 is too complex computation
+    // so we need something which do this process efficiently by keeping precomputations
+    // that's when sieve of erastosthenez comes in
+    // generate an sieve array of size limit given in problem
+    // how to get that array . simple first define array and then for each number if it is 1 then replace all its multiples with 0
 
     public static int[] getSieve(int n){
         int[] prime = new int[n+1];
