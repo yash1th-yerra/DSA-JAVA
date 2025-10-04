@@ -1,0 +1,31 @@
+MultiThreading
+---------------------------
+What is multithreading and why multithreading is required?
+
+1. In single threading environment , only task can be performed at a time.
+2. it wastes cpu cycles
+3. In MultiThreading environment , it allows different parts of code to be executed cocurrently
+to increase max utilization of cpu
+
+Thread vs Process
+----------------------------
+Process -> single contained execution unit which runs program independently in its owns resources and execution environment
+Thread -> smallest unit of execution or light weight process , executes some part like a method of program
+            even though they share common resources it executes tasks indepedently
+            i.e. each thread has its own execution flow
+
+
+Main Thread
+----------------------------
+1. This is the thread that executed when an application is run i.e. main method is called
+2. if no child or user thread are spawned , the program terminates when main() method finishes executing
+3. if child are spawned , the program will keep running until all threads haver completed . but main will not wait to finish it can finish anytime
+4. runtime will distinguish between main and daemon threads
+
+
+Thread creation
+-------------------------
+1. implementing java.lang.Runnable interface
+2. extending java.lang.Thread class
+
+What is the difference in creating thread using runnable or thread classes

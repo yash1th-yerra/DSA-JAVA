@@ -1,0 +1,36 @@
+Collections Framework
+------------------------------------------
+
+Collection is an interface that extends iterable interface
+that specifies an iterator to sequentially access the elements of an iterable object
+
+
+Iterable -> object(impl)
+object sequential accessible
+
+Collections -> iterable (iteration impl)
+
+Collections (interface) -> Object (impl iteration)
+
+Iterable -> Collections -> List/Set/Queue (interface hierarchy)
+
+
+
+Arraylist
+---------------
+1. dynamic
+2. used when size of array is not known before compiling
+3. uses normal array , set to default cap . cap increases based on limit reach
+4. how? just creates new array including growth size and copies all elements into it
+5. old array can be garbage collected eventually
+
+Vector
+------------------
+Same as arraylist but just thread safe (slower compared to arraylist)
+
+
+LinkedList
+------------------------
+1. implents using doubly linkedlist
+2. faster insertion and deletion
+
