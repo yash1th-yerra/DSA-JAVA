@@ -9,6 +9,8 @@ public class FirstOccurence {
 
      */
 
+    // Note : If question states First Occurence or Lower Bound it still same
+
 
     /*
         BruteForce:
@@ -41,8 +43,9 @@ public class FirstOccurence {
     }
 
     public static void main(String[] args) {
-        int[] arr = {2,4,6,8,8,8,11,13};
-        int key= 8;
+//        int[] arr = {2,4,6,8,8,8,11,13};
+        int[] arr = {1,2,2,3};
+        int key= 2;
         System.out.println(firstOccurence(arr,key,arr.length));
     }
 }

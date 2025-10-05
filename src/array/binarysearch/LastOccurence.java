@@ -2,6 +2,7 @@ package src.array.binarysearch;
 
 public class LastOccurence {
     // similar to first occurence just find out upperbound index
+    // when we find element we just move right side to it inorder to get last occurence of it
 
     public static int lastOccurence(int[] arr, int key,int n){
         int low = 0,high= n-1,last = -1;

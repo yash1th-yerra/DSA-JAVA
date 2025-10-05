@@ -11,6 +11,11 @@ public class SearchInSortedArray {
          1. identify sorted part
          2. check if target exists in that
          3. if no move to other part
+         4. continue search till target element is found
+
+         Time Complexity - O(logn)
+         Space Complexity - O(1)
+         // if recursion we will be having an extra stack space for method calls
 
      */
 
