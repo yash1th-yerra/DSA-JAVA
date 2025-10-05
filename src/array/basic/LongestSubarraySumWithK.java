@@ -50,7 +50,7 @@ public class LongestSubarraySumWithK {
     public static int maxSubarrayPointer(int[] arr, int k) {
         int left=0;
         int right=0;
-        int sum=arr[0];
+        long sum=arr[0];        // take sum as long in-case if k is long
         int maxLen=0;
         while(right<arr.length){
             while(left<=right && sum>k){

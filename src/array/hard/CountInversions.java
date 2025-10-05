@@ -7,6 +7,8 @@ public class CountInversions {
     // given an array and we have to find out the count of inversions
     // arr = {5,3,2,4,1}
     // a pair is inversion pair if a[i] > a[j] where i<j
+    // so generally a sorted has zero inversion pairs
+    // and array sorted decreasingly will have n*(n-1)/2
 
     // brute force
     // run two loops and check this condition for each pair

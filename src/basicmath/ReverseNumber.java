@@ -5,25 +5,26 @@ public class ReverseNumber {
 
     public static int reverse(int n){
         int rev = 0;
-        while(n>0){
-            int temp = n%10;
-            
-            if(temp>Integer.MAX_VALUE || (temp==Integer.MAX_VALUE && temp<7)){
-                return 0;
+        while (n != 0) {
+            int temp = n % 10;
+            n /= 10;
+
+            if (rev > Integer.MAX_VALUE / 10 || (rev == Integer.MAX_VALUE / 10 && temp > 7)) {
+                return 0; // overflow
             }
-            if(temp<Integer.MIN_VALUE || (temp==Integer.MIN_VALUE && temp>-8)){
-                return 0;
+            if (rev < Integer.MIN_VALUE / 10 || (rev == Integer.MIN_VALUE / 10 && temp < -8)) {
+                return 0; // underflow
             }
-            rev = rev *10 + temp;
-            n = n/10;
-        
+
+            rev = rev * 10 + temp;
         }
         return rev;
     }
     public static void main(String[] args) {
-        int n = 234234234;
+        int n = 2147483647;
         
         int reverseNumber = reverse(n);
-        System.out.println(reverseNumber);
+        if(reverseNumber==0) System.out.println("Integer Overflow, Can't Reverse");
+        else System.out.println(reverseNumber);
     }
 }

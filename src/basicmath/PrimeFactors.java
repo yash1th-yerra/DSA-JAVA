@@ -35,7 +35,7 @@ public class PrimeFactors {
 //        System.out.println(list);
 //    }
 
-    // To Optimize above problem we can go with Sieve of Eratosthenez approach
+    // To Optimize above problem we can go with Sieve of Eratosthenes approach
 
     public static void main(String[] args) {
 

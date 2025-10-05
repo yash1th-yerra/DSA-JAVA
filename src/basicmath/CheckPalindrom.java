@@ -8,6 +8,7 @@ public class CheckPalindrom {
         int temp = n;
         while(n>0){
             temp = n%10;
+
             rev = rev * 10 + temp ;
             n = n/10;
         

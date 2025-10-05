@@ -11,7 +11,7 @@ public class FollowupToKadanes {
             int start = 0;
             int ansStart = -1;
             int ansEnd = -1;
-            // Now maintain a pointer to calculate sum and chekc if it is maximum or not
+            // Now maintain a pointer to calculate sum and check if it is maximum or not
             // if sum is negative make it 0 otherwise calculate max sum
             for(int i=0; i<nums.length; i++){
                 if(sum==0) start=i;

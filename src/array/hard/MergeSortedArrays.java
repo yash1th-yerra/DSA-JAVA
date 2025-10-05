@@ -90,6 +90,11 @@ public class MergeSortedArrays {
             arr2[ind2] = temp;
         }
     }
+
+
+    // Shell Sort technique
+    // use gap and within that gap if we found anything lesser on right side ,swap
+    // else continue to find lesser element on right side
     private static void optimalMerge2(long[] arr1, long[] arr2, int n, int m) {
         int len = n + m;
         int gap = (len / 2) + (len % 2); // initial gap
