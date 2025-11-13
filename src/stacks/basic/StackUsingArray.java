@@ -1,6 +1,4 @@
-package src.stacks;
-
-import java.util.Stack;
+package src.stacks.basic;
 
 public class StackUsingArray {
     int size = 10;

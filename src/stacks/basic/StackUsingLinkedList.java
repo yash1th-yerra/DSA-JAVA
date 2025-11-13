@@ -1,4 +1,4 @@
-package src.stacks;
+package src.stacks.basic;
 
 
 class Node {

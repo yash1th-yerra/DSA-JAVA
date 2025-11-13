@@ -1,7 +1,5 @@
 package src.queues;
 
-import src.stacks.StackUsingArray;
-
 public class QueueUsingArray {
 
     int front,rear;
