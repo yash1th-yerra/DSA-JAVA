@@ -1,4 +1,4 @@
-package src.stacks.basic;
+package src.stacks.basic.conversions;
 
 import java.util.Stack;
 
