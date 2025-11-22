@@ -41,6 +41,25 @@ public class FruitsIntoBaskets {
         return maxFruits;
     }
 
+    static int maxFruitsIntoBasketsOptimal(int[] fruits){
+        int maxFruits=0;
+        int lastFruit=-1,secLastFruit=-1;
+        int currCount=0,lastFruitStreak = 0;
+        for(int fruit:fruits){
+            if(fruit==lastFruit || fruit==secLastFruit) currCount++;
+            else currCount = lastFruitStreak+1;
+            if(fruit==lastFruit){
+                lastFruitStreak++;
+            }else{
+                lastFruitStreak=1;
+                secLastFruit = lastFruit;
+                lastFruit = fruit;
+            }
+            maxFruits = Math.max(maxFruits,currCount);
+        }
+        return maxFruits;
+    }
+
 
     static void main() {
 //        int[] fruits = {1, 2, 1};
