@@ -38,6 +38,23 @@ public class CountGoodNumbers {
         return result;
 
     }
+
+    static int countGoodNumbersRecursive(int index ,int n){
+        if(index==n) return 1;
+        int result = 0;
+
+        if(index%2==0){
+            for(int i=0;i<5;i++){
+                result+=(countGoodNumbersRecursive(index+1,n))%mod;
+            }
+        }else{
+            for(int i=0;i<4;i++){
+                result+=(countGoodNumbersRecursive(index+1,n))%mod;
+            }
+        }
+
+        return result;
+    }
     public static int countGoodNumber(long n){
         long evenPositions = (n+1)/2;
         long oddPositions = (n)/2;

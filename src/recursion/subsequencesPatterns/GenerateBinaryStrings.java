@@ -13,9 +13,12 @@ public class GenerateBinaryStrings {
         generateBinaryStrings(n,sb);
         sb.deleteCharAt(sb.length()-1);
 
-        sb.append('1');
-        generateBinaryStrings(n,sb);;
-        sb.deleteCharAt(sb.length()-1);
+        // adding this if condition will filter strings with consecutive 1's
+        if(sb.isEmpty() || sb.charAt(sb.length()-1)!='1'){
+            sb.append('1');
+            generateBinaryStrings(n, sb);
+            sb.deleteCharAt(sb.length() - 1);
+        }
     }
 
     public static void main(String[] args) {

@@ -21,6 +21,14 @@ public class PowXN {
         return result;
 
     }
+    public static double myPowRecursive(double x,int n){
+        if(n==0) return 1.0;
+        if(n==1) return x;
+        if(n<0) return 1.0/myPowRecursive(x,-n);
+        double halfPow = myPowRecursive(x,n/2);
+        if(halfPow%2==0) return halfPow*halfPow;
+        else return x*halfPow*halfPow;
+    }
 
 
     public static void main(String[] args) {
