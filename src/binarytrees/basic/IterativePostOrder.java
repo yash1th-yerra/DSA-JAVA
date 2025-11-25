@@ -11,18 +11,22 @@ public class IterativePostOrder {
         List<Integer> ans = new ArrayList<>();
         Stack<Node> st = new Stack<>();
         Stack<Node> st2 = new Stack<>();
-        if(root==null) return ans;
+        Node node = root;
         st.push(root);
         while(!st.isEmpty()){
-            root = st.pop();
-            st2.push(root);
-            if(root.left!=null) st.push(root.left);
-            if(root.right!=null) st.push(root.right);
+            node = st.pop();
+            st2.push(node);
+            if(node.left!=null) st.push(node.left);
+            if(node.right!=null) st.push(node.right);
+
         }
 
         while(!st2.isEmpty()){
-            ans.add(st2.pop().data);
+            ans.add(st2.peek().data);
+            st2.pop();
+
         }
+
         return ans;
 
 
