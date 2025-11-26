@@ -1,4 +1,6 @@
-package src.binarysearchtrees.basic;
+package src.binarysearchtrees.hard;
+
+import src.binarysearchtrees.basic.Node;
 
 public class KthSmallestInBST {
 
@@ -9,7 +11,7 @@ public class KthSmallestInBST {
     // also doing it in morris traversal makes it more efficient.
 
 
-    static int morrisTraversal(Node root,int k){
+    static int morrisTraversal(Node root, int k){
         Node curr = root;
         int cnt= 0;
         while(curr!=null){
