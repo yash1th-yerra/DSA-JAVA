@@ -38,6 +38,21 @@ public class TwoSumInBST {
 
 
     // Optimal
-    // init two pointers
+    // using BST Iterator
+    static boolean twoSumInBSTOptimal(Node root,int sum){
+        if(root==null) return false;
+
+        BSTIterator l = new BSTIterator(root,false);
+        BSTIterator r = new BSTIterator(root,true);
+
+        int i = l.next();
+        int j = r.next();
+        while(i<j){
+            if(i+j==sum) return true;
+            else if(i+j<sum) i = l.next();
+            else j = r.next();
+        }
+        return false;
+    }
 
 }
