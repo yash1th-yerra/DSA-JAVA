@@ -1,6 +1,6 @@
 package src.binarysearchtrees.hard;
 
-import src.binarysearchtrees.basic.Node;
+import src.binarysearchtrees.hard.Node;
 
 public class KthSmallestInBST {
 
